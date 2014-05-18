@@ -1,0 +1,46 @@
+{
+  "name": "generator-pdemail",
+  "version": "0.0.0",
+  "description": "PD's HTML Email Yeoman generator",
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": "psapir/generator-pdemail",
+  "author": {
+    "name": "Pato Sapir",
+    "email": "patriciosapir@gmail.com",
+    "url": "https://github.com/psapir"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "yeoman-generator": "~0.16.0",
+    "chalk": "~0.4.0",
+    "yosay": "^0.1.0",
+    "cli-table": "~0.3.0",
+    "grunt": "~0.4.2",
+    "grunt-cli": "~0.1.7",
+    "grunt-contrib-connect": "~0.7.1",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-compass": "~0.7.2",
+    "grunt-contrib-imagemin": "~0.5.0", 
+    "grunt-contrib-clean": "~0.5.0",   
+    "grunt-premailer": "~0.2.7",
+    "grunt-litmus": "~0.1.5"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0"
+  }
+}

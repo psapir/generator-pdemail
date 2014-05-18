@@ -1,0 +1,9 @@
+{
+  "name": "generator-pdemail",
+  "description": "Yeoman generator to help ease the development of HTML emails.",
+  "version": "1.0.0",
+  "dependencies": {
+  	
+  }
+}
+

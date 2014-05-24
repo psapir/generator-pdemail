@@ -156,7 +156,7 @@ module.exports = function (grunt) {
                 username: '<%= litmusUser %>',
                 password: '<%= litmusPassword %>',
                 url: '<%= litmusDomain %>',
-                clients: ['gmailnew', 'ffgmailnew', 'chromegmailnew']
+                clients: [<%= _.words(litmusClients) %>]
               }
             }
         }

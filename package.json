@@ -1,6 +1,6 @@
 {
   "name": "generator-pdemail",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "PD's HTML Email Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
@@ -25,7 +25,9 @@
   "dependencies": {
     "yeoman-generator": "~0.16.0",
     "chalk": "~0.4.0",
-    "yosay": "^0.1.0"
+    "yosay": "^0.1.0",
+    "request": "~2.34.0",
+    "inquirer": "~0.5.0"
   },
   "devDependencies": {
     "mocha": "*"

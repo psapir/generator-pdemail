@@ -4,7 +4,7 @@ var path = require('path');
 var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 var chalk = require('chalk');
-
+var inquirer = require("inquirer");
 
 var PdemailGenerator = yeoman.generators.Base.extend({
   init: function () {
@@ -65,6 +65,60 @@ var PdemailGenerator = yeoman.generators.Base.extend({
       }
     },
     {
+      type: 'input',
+      name: 'htmlTemplate',
+      message: 'Specify your HTML template',
+      default: 'https://gist.githubusercontent.com/psapir/b5c432b6982466ea0d58/raw/5ef129e59e2f0705e38557696bcf433b3ceabc46/index.html',
+      validate: function (value) {
+          // Trim input value
+          var domain = value.replace(/^\s+/g, '').replace(/\s+$/g, '');
+          // Check if domain isn't empty
+          if (!domain) {
+              return 'Please provide a template...';
+          }
+          // Check if domain is valid
+          if (!domain.match(/^(https?:\/\/)([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/)) {
+              return 'Please provide a valid template...';
+          }
+          return true;
+      },
+      filter: function (value) {
+          // Make sure domain ends with a trailing slash
+          if (value[value.length - 1] !== '/') {
+              return value + '/';
+          }
+          return value;
+
+      }
+    },
+    {
+      type: 'input',
+      name: 'scssTemplate',
+      message: 'Specify your SCSS template',
+      default: 'https://gist.githubusercontent.com/psapir/b5c432b6982466ea0d58/raw/dd92f3d2a709b82e8a28818e761266e48f4eabba/styles.scss',
+      validate: function (value) {
+          // Trim input value
+          var domain = value.replace(/^\s+/g, '').replace(/\s+$/g, '');
+          // Check if domain isn't empty
+          if (!domain) {
+              return 'Please provide a template...';
+          }
+          // Check if domain is valid
+          if (!domain.match(/^(https?:\/\/)([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/)) {
+              return 'Please provide a valid template...';
+          }
+          return true;
+      },
+      filter: function (value) {
+          // Make sure domain ends with a trailing slash
+          if (value[value.length - 1] !== '/') {
+              return value + '/';
+          }
+          return value;
+
+      }
+    },
+    {
       type: 'confirm',
       name: 'litmus',
       message: 'Care for some litmus testing today?',
@@ -108,7 +162,196 @@ var PdemailGenerator = yeoman.generators.Base.extend({
           }
           return true;
       }
+    },
+    {
+      when: function( props ) {
+        return props.litmus;
+      },
+      type: 'checkbox',
+      name: 'litmusClients',
+      message: 'Which clients would you like to test?',
+      choices: [
+      new inquirer.Separator("Mobile devices:"),
+      {
+        name: "Android 2.3",
+        value:'"android22"',
+        checked: true
+      },
+      {
+        name: "Android 4.2",
+        value:'"android4"',
+        checked: true
+      },
+      {
+        name: "Gmail App (Android)",
+        value:'"androidgmailapp"',
+        checked: true
+      },
+      {
+        name: "iPhone 4s",
+        value:'"iphone4"',
+        checked: true
+      },
+      {
+        name: "iPhone 5",
+        value:'"iphone5"',
+        checked: true
+      },
+      {
+        name: "iPhone 5s",
+        value:'"iphone5s"',
+        checked: true
+      },
+      {
+        name: "iPad (Retina)",
+        value:'"ipad"',
+        checked: true
+      },
+      {
+        name: "iPad mini",
+        value:'"ipadmini"',
+        checked: true
+      },
+      {
+        name: "Windows Phone 8",
+        value:'"windowsphone8"',
+        checked: true
+      },  
+      new inquirer.Separator("Web based clients:"),
+      {
+        name: "AOL Mail (Explorer)",
+        value:'"aolonline"',
+        checked: true
+      },
+      {
+        name: "AOL Mail (Firefox)",
+        value:'"ffaolonline"',
+        checked: true
+      },
+      {
+        name: "AOL Mail (Chrome)",
+        value:'"chromeaolonline"',
+        checked: true
+      },
+      {
+        name: "Gmail (Explorer)",
+        value:'"gmailnew"',
+        checked: true
+      },
+      {
+        name: "Gmail (Firefox)",
+        value:'"ffgmailnew"',
+        checked: true
+      },
+      {
+        name: "Gmail (Chrome)",
+        value:'"chromegmailnew"',
+        checked: true
+      },
+      {
+        name: "Outlook.com (Explorer)",
+        value:'"outlookcom"',
+        checked: true
+      },
+      {
+        name: "Outlook.com (Firefox)",
+        value:'"ffoutlookcom"',
+        checked: true
+      },
+      {
+        name: "Outlook.com (Chrome)",
+        value:'"chromeoutlookcom"',
+        checked: true
+      },
+      {
+        name: "Yahoo! Mail (Explorer)",
+        value:'"yahoo"',
+        checked: true
+      },
+      {
+        name: "Yahoo! Mail (Firefox)",
+        value:'"ffyahoo"',
+        checked: true
+      },
+      {
+        name: "Yahoo! Mail (Chrome)",
+        value:'"chromeyahoo"',
+        checked: true
+      },
+      new inquirer.Separator("Desktop clients:"),
+      {
+        name: "Lotus Notes 8",
+        value:'"notes8"',
+        checked: true
+      },
+      {
+        name: "Lotus Notes 8.5",
+        value:'"notes85"',
+        checked: true
+      },
+      {
+        name: "Outlook 2000",
+        value:'"ol2000"',
+        checked: true
+      },
+      {
+        name: "Outlook 2002",
+        value:'"ol2002"',
+        checked: true
+      },
+      {
+        name: "Outlook 2003",
+        value:'"ol2003"',
+        checked: true
+      },
+      {
+        name: "Outlook 2007",
+        value:'"ol2007"',
+        checked: true
+      },
+      {
+        name: "Outlook 2010",
+        value:'"ol2010"',
+        checked: true
+      },
+      {
+        name: "Outlook 2011 (Mac)",
+        value:'"ol2011"',
+        checked: true
+      },
+      {
+        name: "Outlook 2013",
+        value:'"ol2013"',
+        checked: true
+      },
+      {
+        name: "Thunderbird latest",
+        value:'"thunderbirdlatest"',
+        checked: true
+      },
+      {
+        name: "Thunderbird latest",
+        value:'"thunderbirdlatest"',
+        checked: true
+      },
+      {
+        name: "Apple Mail 5",
+        value:'"appmail5"',
+        checked: true
+      },
+      {
+        name: "Apple Mail 6",
+        value:'"appmail6"',
+        checked: true
+      }
+    ],
+    validate: function( answer ) {
+      if ( answer.length < 1 ) {
+        return "You must choose at least one email client.";
+      }
+      return true;
     }
+  }
     ];
 
     this.prompt(prompts, function (props) {
@@ -119,7 +362,9 @@ var PdemailGenerator = yeoman.generators.Base.extend({
       this.litmusDomain = props.litmusDomain;
       this.litmusUser = props.litmusUser;
       this.litmusPassword = props.litmusPassword;
-
+      this.litmusClients = props.litmusClients;
+      this.htmlTemplate = props.htmlTemplate;
+      this.scssTemplate = props.scssTemplate;
       done();
     }.bind(this));
   },
@@ -132,11 +377,48 @@ var PdemailGenerator = yeoman.generators.Base.extend({
     this.template('_package.json', 'package.json');
     this.template('_bower.json', 'bower.json');
     this.template('_Gruntfile.js', 'Gruntfile.js');
-
-    this.template('_index.html', 'app/index.html');
-    this.copy('css/styles.'+this.syntax,'app/css/styles.'+this.syntax);
   },
+  getEmailTemplate: function () {
+      var request = require('request'),
+          self    = this,
+          done    = self.async();
 
+      self.log.writeln('Fetching Email template...');
+
+      request.get(this.htmlTemplate, function (error, response, body) {
+          if (!error && response.statusCode === 200) {
+              self.write('app/index.html', body);
+          }
+          else
+          {
+            self.log.writeln('Could not load template, loading local file...');
+            self.template('_index.html', 'app/index.html');
+          }
+          done();
+      });
+        
+  },
+  getSCSSTemplate: function () {
+      
+      var request = require('request'),
+          self    = this,
+          done    = self.async();
+
+      self.log.writeln('Fetching SCSS template...');
+
+      request.get(this.scssTemplate, function (error, response, body) {
+          if (!error && response.statusCode === 200) {
+              self.write('app/css/styles.scss', body);
+          }
+          else
+          {
+            self.log.writeln('Could not load template, loading local file...');
+            self.template('_styles.scss', 'app/css/styles.scss');
+          }
+          done();
+      });
+        
+  },
   projectfiles: function () {
     this.copy('editorconfig', '.editorconfig');
     this.copy('jshintrc', '.jshintrc');

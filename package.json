@@ -1,6 +1,6 @@
 {
   "name": "generator-pdemail",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "PD's HTML Email Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",

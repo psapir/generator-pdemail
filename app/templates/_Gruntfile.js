@@ -179,6 +179,7 @@ module.exports = function (grunt) {
     });
 
     [
+        'grunt-cli',
         'grunt-contrib-connect',
         'grunt-contrib-watch',
         'grunt-contrib-compass',

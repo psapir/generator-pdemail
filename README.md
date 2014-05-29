@@ -17,7 +17,8 @@ Based on Javier Villanueva's [generator-htmlemail](https://github.com/jahvi/gene
 * Yeoman >= 1.0.0 (`npm install -g yo`)
 * Ruby >= 1.8.7 ([installers](http://www.ruby-lang.org/en/downloads/))
 * Compass >= 0.12.2 (`gem install compass`)
-* Premailer >= 1.7.3 (`gem install premailer` and, most of the time, `gem install hpricot`)
+* Nokogiri >= (`gem install nokogiri`)
+* Premailer >= 1.7.3 (`gem install premailer`)
 
 ## Getting Started
 

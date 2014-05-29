@@ -413,7 +413,7 @@ var PdemailGenerator = yeoman.generators.Base.extend({
           else
           {
             self.log.writeln('Could not load template, loading local file...');
-            self.template('_styles.scss', 'app/css/styles.scss');
+            self.template('css/_styles.scss', 'app/css/styles.scss');
           }
           done();
       });

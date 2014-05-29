@@ -68,7 +68,7 @@ var PdemailGenerator = yeoman.generators.Base.extend({
       type: 'input',
       name: 'htmlTemplate',
       message: 'Specify your HTML template',
-      default: 'https://gist.githubusercontent.com/psapir/b5c432b6982466ea0d58/raw/5ef129e59e2f0705e38557696bcf433b3ceabc46/index.html',
+      default: 'https://gist.githubusercontent.com/psapir/b5c432b6982466ea0d58/raw/462510a0457d85f89d4354b237dbe53f76832448/index.html',
       validate: function (value) {
           // Trim input value
           var domain = value.replace(/^\s+/g, '').replace(/\s+$/g, '');

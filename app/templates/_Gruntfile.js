@@ -128,6 +128,21 @@ module.exports = function (grunt) {
         },
 
         /**
+         * Replace image path for premailer
+         * ===============================
+         */
+        replace: {
+            dist: {
+                src: ['dist/index.html'],             
+                overwrite: true,            
+                replacements: [{
+                    from: '/img/',                   
+                    to: '/'
+                }]
+            }
+        },
+
+        /**
          * Premailer Parser Tasks
          * ===============================
          */
@@ -170,7 +185,8 @@ module.exports = function (grunt) {
         'grunt-contrib-imagemin',
         'grunt-contrib-clean',
         'grunt-premailer',
-        'grunt-litmus'
+        'grunt-litmus',
+        'grunt-text-replace'
     ].forEach(grunt.loadNpmTasks);
 
     grunt.registerTask('default', 'dev');
@@ -186,6 +202,7 @@ module.exports = function (grunt) {
         'imagemin',
         'compass:dist',
         'premailer:dist',
+        'replace',
         'connect:dist'
     ]);
 
@@ -194,6 +211,7 @@ module.exports = function (grunt) {
         'imagemin',
         'compass:dist',
         'premailer:dist',
+        'replace',
         'litmus:dist'        
     ]);
 

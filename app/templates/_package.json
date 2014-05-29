@@ -1,6 +1,9 @@
 {
   "name": "<%= _.slugify(appname) %>",
   "version": "1.0.0",
+  "description": "Email Template created with PD's HTML Email Yeoman generator",
+  "license": "MIT",
+  "repository": "generator-pdemail",
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.2",

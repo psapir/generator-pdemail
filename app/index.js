@@ -68,7 +68,7 @@ var PdemailGenerator = yeoman.generators.Base.extend({
       type: 'input',
       name: 'htmlTemplate',
       message: 'Specify your HTML template',
-      default: 'https://gist.githubusercontent.com/psapir/b5c432b6982466ea0d58/raw/462510a0457d85f89d4354b237dbe53f76832448/index.html',
+      default: 'https://gist.githubusercontent.com/psapir/b5c432b6982466ea0d58/raw/7cc5ce42351c18ef9d62dc8b9c50d2a889ba931c/index.html',
       validate: function (value) {
           // Trim input value
           var domain = value.replace(/^\s+/g, '').replace(/\s+$/g, '');
@@ -95,7 +95,7 @@ var PdemailGenerator = yeoman.generators.Base.extend({
       type: 'input',
       name: 'scssTemplate',
       message: 'Specify your SCSS template',
-      default: 'https://gist.githubusercontent.com/psapir/b5c432b6982466ea0d58/raw/dd92f3d2a709b82e8a28818e761266e48f4eabba/styles.scss',
+      default: 'https://gist.githubusercontent.com/psapir/b5c432b6982466ea0d58/raw/6ee61c449c50551c4b02a53f426ba0f99e1efd5b/styles.scss',
       validate: function (value) {
           // Trim input value
           var domain = value.replace(/^\s+/g, '').replace(/\s+$/g, '');

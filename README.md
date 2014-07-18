@@ -15,7 +15,7 @@ Based on Javier Villanueva's [generator-htmlemail](https://github.com/jahvi/gene
 
 * Node.js >= 0.8.11 ([install wiki](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager))
 * Yeoman >= 1.0.0 (`npm install -g yo`)
-* Ruby >= 1.8.7 ([installers](http://www.ruby-lang.org/en/downloads/))
+* Ruby >= 1.8.7 ([installers](http://www.ruby-lang.org/en/downloads/) | [Windows Installer](http://rubyinstaller.org/))
 * Compass >= 0.12.2 (`gem install compass`)
 * Nokogiri >= (`gem install nokogiri`)
 * Premailer >= 1.7.3 (`gem install premailer`)
